@@ -24,7 +24,15 @@ class TestChandrayaan3(unittest.TestCase):
         chandrayaan.turn('r','E')
         self.assertEqual(chandrayaan.getDirection(), 'S')
 
-   
+    def test_tilt_up(self):
+        chandrayaan = Chandrayaan3()
+        chandrayaan.tilt('u','N')
+        self.assertEqual(chandrayaan.getDirection(), 'U')
+
+    def test_tilt_down(self):
+        chandrayaan = Chandrayaan3()
+        chandrayaan.tilt('d','S')
+        self.assertEqual(chandrayaan.getDirection(), 'D')
 
     def test_commandSet1(self):
         chandrayaan = Chandrayaan3()
@@ -44,6 +52,12 @@ class TestChandrayaan3(unittest.TestCase):
         self.assertEqual(chandrayaan.getDirection(), 'E')
 
    
+    def test_commandsSet2(self):
+        chandrayaan = Chandrayaan3()
+        commands = ['u', 'r', 'u', 'b', 'r','f','f','l','r','d']
+        chandrayaan.execute_commands(commands)
+        self.assertEqual(chandrayaan.getPosition(), [0, -2, -1])
+        self.assertEqual(chandrayaan.getDirection(), 'D')
 
        
 
