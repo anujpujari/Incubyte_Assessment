@@ -64,7 +64,37 @@ class Chandrayaan3:
                 self.turn(command, self.prev)
             
 
-    
+    def tilt(self, command, dir):
+        if command == 'u': 
+            if dir == 'N':
+                self.prev = 'N'  
+                self.direction = 'U'
+            elif dir == 'S':
+                self.prev = 'S'
+                self.direction = 'U'
+            elif dir == 'E':
+                self.prev = 'E'
+                self.direction = 'U'
+            elif dir == 'W':
+                self.prev = 'W'
+                self.direction = 'U'
+            else:
+                self.direction = 'U'
+        elif command == 'd':
+            if dir == 'N':
+                self.prev = 'N'
+                self.direction = 'D'
+            elif dir == 'S':
+                self.prev = 'S'
+                self.direction = 'D'
+            elif dir == 'E':
+                self.prev = 'E'
+                self.direction = 'D'
+            elif dir == 'W':
+                self.prev = 'W'
+                self.direction = 'D'
+            else:
+                self.direction = 'D'
 
     def execute_commands(self, commands):
         for command in commands:
